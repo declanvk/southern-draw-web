@@ -20,7 +20,7 @@ function Landing (props: Landing.IProps) {
       <div className='sd-landing-page transition-item'>
          <div className={'sd-landing-header-spacer'} />
          <div className={'sd-landing-code'}>
-            <p>Your lounge code is: {props.lounge_code}</p>
+            <p>Your lounge code is: <span className="sd-bold">{props.lounge_code}</span></p>
          </div>
          <div className={'sd-landing-players-container'}>
             <img src={p1_image} />

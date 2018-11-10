@@ -5,6 +5,8 @@ import {Landing} from './landing';
 import PageTransition from 'react-router-page-transition';
 import "./../assets/scss/app.scss";
 
+const logo = require("./../assets/img/logo.png");
+
 namespace App {
    export 
    interface IState {
@@ -36,7 +38,7 @@ default class App extends React.Component<App.IProps, App.IState> {
 
       this.handleChange = this.handleChange.bind(this);
 
-      setTimeout(this.handleChange, 3000);
+      //setTimeout(this.handleChange, 3000);
    }
 
    handleChange() {
@@ -61,9 +63,12 @@ default class App extends React.Component<App.IProps, App.IState> {
          page = (<GameBoard {...this.state} />);
 
       return (
-         <PageTransition>
-            {page}
-         </PageTransition>
+         <div>
+            <img source={logo} className={'sd-logo'}/>
+            <PageTransition>
+               {page}
+            </PageTransition>
+         </div>
       );
    }
 }
