@@ -36,7 +36,7 @@ default class App extends React.Component<App.IProps, App.IState> {
 
       this.handleChange = this.handleChange.bind(this);
 
-      setTimeout(this.handleChange, 1000);
+      setTimeout(this.handleChange, 3000);
    }
 
    handleChange() {
@@ -56,7 +56,7 @@ default class App extends React.Component<App.IProps, App.IState> {
       let page: any;
    
       if (this.state.display == 'landing')
-         page = (<Landing />);
+         page = (<Landing lounge_code={'000-000'} />);
       else
          page = (<GameBoard {...this.state} />);
 

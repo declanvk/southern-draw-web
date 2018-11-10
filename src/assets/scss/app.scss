@@ -1,5 +1,19 @@
 $bg-color: #a36e49;
-$border-color: red;
+
+@font-face {
+   font-family: 'Billy Forges';
+   src: url('../fonts/Billyforges\ Vintage.ttf');
+}
+
+@font-face {
+   font-family: 'Caviar Dreams';
+   src: url('../fonts/CaviarDreams.ttf');
+}
+
+@font-face {
+   font-family: 'Caviar Dreams Bold';
+   src: url('../fonts/Caviar_Dreams_Bold.ttf');
+}
 
 body {
   margin: 0px;
@@ -9,78 +23,104 @@ body {
   background-position: top center;
   min-width: 1280px;
   min-width: 1024px;
+}
 
-   .sd-header-spacer {
-      height: 50px;
+.sd-header-spacer {
+   height: 50px;
+}
+
+.sd-content-container {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-evenly;
+}
+
+.transition-wrapper {
+   position: relative;
+   z-index: 1;
+   .transition-item {
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+   }
+}
+
+.sd-landing-page {
+   height: 100%;
+   width: 100%;
+   transition: transform 0.5s, opacity 0.5s;
+
+   &.transition-appear {
+      opacity: 0;
+      transform: translate3d(-100%, 0, 0);
    }
 
-   .sd-content-container {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-evenly;
+   &.transition-appear.transition-appear-active {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+   }
+   &.transition-leave {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
    }
 
-   .transition-wrapper {
-      position: relative;
-      z-index: 1;
-      .transition-item {
-         position: fixed;
-         top: 0;
-         right: 0;
-         left: 0;
-      }
+   &.transition-leave.transition-leave-active {
+      opacity: 0;
+      transform: translate3d(-100%, 0, 0);
+   }
+}
+
+.sd-game-board {
+   transition: transform 0.5s, opacity 0.5s;
+
+   &.transition-appear {
+      opacity: 0;
+      transform: translate3d(100%, 0, 0);
    }
 
-   .sd-landing-page {
-      height: 100%;
-      width: 100%;
-      transition: transform 0.5s, opacity 0.5s;
-
-      &.transition-appear {
-         opacity: 0;
-         transform: translate3d(-100%, 0, 0);
-      }
-
-      &.transition-appear.transition-appear-active {
-         opacity: 1;
-         transform: translate3d(0, 0, 0);
-      }
-      &.transition-leave {
-         opacity: 1;
-         transform: translate3d(0, 0, 0);
-      }
-
-      &.transition-leave.transition-leave-active {
-         opacity: 0;
-         transform: translate3d(-100%, 0, 0);
-      }
+   &.transition-appear.transition-appear-active {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+   }
+   &.transition-leave {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
    }
 
-   .sd-game-board {
-      transition: transform 0.5s, opacity 0.5s;
-
-      &.transition-appear {
-         opacity: 0;
-         transform: translate3d(100%, 0, 0);
-      }
-
-      &.transition-appear.transition-appear-active {
-         opacity: 1;
-         transform: translate3d(0, 0, 0);
-      }
-      &.transition-leave {
-         opacity: 1;
-         transform: translate3d(0, 0, 0);
-      }
-
-      &.transition-leave.transition-leave-active {
-         opacity: 0;
-         transform: translate3d(100%, 0, 0);
-      }
+   &.transition-leave.transition-leave-active {
+      opacity: 0;
+      transform: translate3d(100%, 0, 0);
    }
+}
 
-   .konvajs-content {
-      background-color: #FFFFFF;
-      border-radius: 5px;
+.sd-landing-header-spacer {
+   height: 200px;
+}
+
+.sd-landing-code {
+   margin: auto;
+   background-color: #FFFFFF;
+   width: 836px;
+   border-radius: 5px;
+
+   p {
+      font-family: 'Caviar Dreams';
+      line-height: 50px;
+      margin: auto;
+      font-size: 30px;
+      text-align: center;
    }
+}
+
+.sd-landing-players-container {
+   margin-top: 50px;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-evenly;
+}
+
+.konvajs-content {
+   background-color: #FFFFFF;
+   border-radius: 5px;
 }
