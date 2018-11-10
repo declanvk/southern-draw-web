@@ -26,13 +26,42 @@ class UserCanvas extends React.Component<UserCanvas.IProps, undefined> {
             <Line points={l.points} stroke={l.color} strokeWidth={10} key={idx} />
          )
       });
-      console.log(lines)
       return (
-         <STAGE width={500} height={1000}>
+         <STAGE width={500} height={800} className='sd-user-canvas'>
             <Layer>
                {lines}
             </Layer>
          </STAGE>
+      );
+   }
+}
+
+namespace GameBoard {
+   export 
+   interface IProps {
+      user: string;
+      lines: UserCanvas.ILine[];
+   }
+   export 
+   interface IState {
+   }
+}
+
+export 
+class GameBoard extends React.Component<GameBoard.IProps, GameBoard.IState> {
+   render() {
+      return (
+         <div className='sd-game-board transition-item'>
+            <div className='sd-header-spacer'/>
+            <div className='sd-content-container'>
+               <div className='sd-canvas-left'>
+                  <UserCanvas user={this.props.user} lines={this.props.lines}/>
+               </div>
+               <div className='sd-canvas-right'>
+                  <UserCanvas user={this.props.user} lines={this.props.lines}/>
+               </div>
+            </div>
+         </div>
       );
    }
 }

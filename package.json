@@ -19,9 +19,6 @@
       "@babel/preset-env": "^7.1.0",
       "@babel/preset-react": "^7.0.0",
       "@types/node": "^10.12.2",
-      "@types/react": "^16.7.2",
-      "@types/react-dom": "^16.0.9",
-      "@types/socket.io": "^2.1.0",
       "awesome-typescript-loader": "^5.2.1",
       "babel-loader": "^8.0.4",
       "css-loader": "^1.0.1",
@@ -43,10 +40,14 @@
       "webpack-merge": "^4.1.4"
    },
    "dependencies": {
+      "@types/react": "^16.7.2",
+      "@types/react-dom": "^16.0.9",
+      "@types/socket.io": "^2.1.0",
       "konva": "1.7.6",
       "react": "16.6.1",
       "react-dom": "16.6.1",
       "react-konva": "1.6.4",
+      "react-router-page-transition": "^3.1.0",
       "socket.io-client": "^2.1.1"
    }
 }
