@@ -6,7 +6,7 @@ var STAGE = (Stage as any);
 export
 namespace UserCanvas {
    export
-   interface Line {
+   interface ILine {
       color: string;
       points: number[]; // [x1 y1 x2 y2 ...]
    }
@@ -14,7 +14,7 @@ namespace UserCanvas {
    export
    interface IProps {
       user: string;
-      lines: Line[];
+      lines: ILine[];
    }
 }
 
