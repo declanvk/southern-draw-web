@@ -17,12 +17,21 @@ $bg-color: #a36e49;
 
 body {
   margin: 0px;
-  background: url('../img/bg.png');
-  background-size:     cover;                      /* <------ */
-  background-repeat:   no-repeat;
-  background-position: top center;
+  background: url('../img/bg-no-logo.png') no-repeat center center fixed;
+  // background-size:cover;                      /* <------ */
+  // background-repeat: no-repeat;
+  // background-position: top center;
   min-width: 1280px;
   min-width: 1024px;
+}
+
+.sd-logo {
+  width:500px;
+  position:fixed;
+  top:20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -100;
 }
 
 .sd-header-spacer {
@@ -92,30 +101,43 @@ body {
    }
 }
 
-.sd-landing-header-spacer {
-   height: 200px;
-}
-
 .sd-landing-code {
-   margin: auto;
-   background-color: #FFFFFF;
-   width: 836px;
-   border-radius: 5px;
+  position: fixed;
+  top:230px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #FFFFFF;
+  width: 475px;
+  border-radius: 5px;
+  -webkit-box-shadow: 8px 10px 23px -12px rgba(0,0,0,0.75);
+  -moz-box-shadow: 8px 10px 23px -12px rgba(0,0,0,0.75);
+  box-shadow: 8px 10px 23px -12px rgba(0,0,0,0.75);
 
    p {
       font-family: 'Caviar Dreams';
-      line-height: 50px;
+      line-height: 45px;
       margin: auto;
-      font-size: 30px;
+      font-size: 25px;
       text-align: center;
    }
+   .sd-bold {
+    font-family: 'Caviar Dreams Bold';
+  }
+
 }
 
 .sd-landing-players-container {
-   margin-top: 50px;
-   display: flex;
-   flex-direction: row;
-   justify-content: space-evenly;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  position: fixed;
+  top: 300px;
+  width: 100%;
+   
+   img { //wanted signs
+    width: 250px;
+    height:326.275px;
+   }
 }
 
 .konvajs-content {

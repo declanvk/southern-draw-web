@@ -46,7 +46,7 @@ class Landing extends React.Component<Landing.IProps, Landing.IState> {
          <div className='sd-landing-page transition-item'>
             <div className={'sd-landing-header-spacer'} />
             <div className={'sd-landing-code'}>
-               <p>Your lounge code is: {this.state.lounge_code}</p>
+               <p>Your lounge code is: <span className="sd-bold">{this.state.lounge_code}</span></p>
             </div>
             <div className={'sd-landing-players-container'}>
                <img src={p1_image} />
