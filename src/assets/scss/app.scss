@@ -16,13 +16,12 @@ $bg-color: #a36e49;
 }
 
 body {
-  margin: 0px;
+  margin: 0;
+  padding: 0;
   background: url('../img/bg-no-logo.png') no-repeat center center fixed;
   // background-size:cover;                      /* <------ */
   // background-repeat: no-repeat;
   // background-position: top center;
-  min-width: 1280px;
-  min-width: 1024px;
 }
 
 .sd-logo {
@@ -31,7 +30,7 @@ body {
   top:20px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: -100;
+  z-index: 100;
 }
 
 .sd-header-spacer {
@@ -45,8 +44,6 @@ body {
 }
 
 .transition-wrapper {
-   position: relative;
-   z-index: 1;
    .transition-item {
       position: fixed;
       top: 0;
@@ -134,13 +131,29 @@ body {
   top: 300px;
   width: 100%;
    
-   img { //wanted signs
+   img { // wanted signs
     width: 250px;
     height:326.275px;
    }
 }
 
+.sd-user-canvas {
+  position: fixed;
+  top:120px;
+  border-radius: 5px;
+  -webkit-box-shadow: 8px 10px 23px -12px rgba(0,0,0,0.75);
+  -moz-box-shadow: 8px 10px 23px -12px rgba(0,0,0,0.75);
+  box-shadow: 8px 10px 23px -12px rgba(0,0,0,0.75);
+  
+}
+
+.sd-canvas-left {
+  margin-left:-300px;
+
+}
+
 .konvajs-content {
-   background-color: #FFFFFF;
-   border-radius: 5px;
+  background-image: url('../img/canvas.png') ;
+  border-radius: 5px;
+  
 }
