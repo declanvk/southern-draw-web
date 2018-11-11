@@ -68,6 +68,7 @@ class GameBoard extends React.Component<GameBoard.IProps, GameBoard.IState> {
 
    componentDidMount() {
       this.props.socket.on('draw_data_web', (data: any) => {
+         console.log(data)
          let lines: UserCanvas.ILine[] = data.lines.map(l => {
             let points: number[] = [];
             l.points.forEach(p => {
