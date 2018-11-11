@@ -16,13 +16,12 @@ $bg-color: #a36e49;
 }
 
 body {
-  margin: 0px;
+  margin: 0;
+  padding: 0;
   background: url('../img/bg-no-logo.png') no-repeat center center fixed;
   // background-size:cover;                      /* <------ */
   // background-repeat: no-repeat;
   // background-position: top center;
-  min-width: 1280px;
-  min-width: 1024px;
 }
 
 .sd-logo {
@@ -31,7 +30,7 @@ body {
   top:20px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: -100;
+  z-index: 100;
 }
 
 .sd-header-spacer {
