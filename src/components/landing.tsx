@@ -29,8 +29,6 @@ class Landing extends React.Component<Landing.IProps, Landing.IState> {
       this.state = {
          lounge_code: '000000'
       }
-
-      setTimeout(this.props.transition_func, 1000);
    }
 
    componentDidMount() {
@@ -45,11 +43,11 @@ class Landing extends React.Component<Landing.IProps, Landing.IState> {
       return (
          <div className='sd-landing-page transition-item'>
             <div className={'sd-landing-header-spacer'} />
-            <div className={'sd-landing-code'}>
+            <div className={'sd-landing-code'} >
                <p>Your lounge code is: <span className="sd-bold">{this.state.lounge_code}</span></p>
             </div>
             <div className={'sd-landing-players-container'}>
-               <img src={p1_image} />
+               <img src={p1_image}  onClick={this.props.transition_func}/>
                <img src={p2_image} />
             </div>
          </div>
