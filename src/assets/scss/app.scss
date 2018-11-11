@@ -17,10 +17,10 @@ $bg-color: #a36e49;
 
 body {
   margin: 0px;
-  background: url('../img/bg-no-logo.png');
-  background-size:     cover;                      /* <------ */
-  background-repeat:   no-repeat;
-  background-position: top center;
+  background: url('../img/bg-no-logo.png') no-repeat center center fixed;
+  // background-size:cover;                      /* <------ */
+  // background-repeat: no-repeat;
+  // background-position: top center;
   min-width: 1280px;
   min-width: 1024px;
 }
@@ -95,14 +95,17 @@ body {
 }
 
 .sd-landing-header-spacer {
-   height: 200px;
+  //  height: 200px;
 }
 
 .sd-landing-code {
    margin: auto;
    background-color: #FFFFFF;
-   width: 836px;
+   width: 536px;
    border-radius: 5px;
+   -webkit-box-shadow: 8px 10px 23px -12px rgba(0,0,0,0.75);
+   -moz-box-shadow: 8px 10px 23px -12px rgba(0,0,0,0.75);
+   box-shadow: 8px 10px 23px -12px rgba(0,0,0,0.75);
 
    p {
       font-family: 'Caviar Dreams';
@@ -111,10 +114,10 @@ body {
       font-size: 30px;
       text-align: center;
    }
-}
+   .sd-bold {
+    font-family: 'Caviar Dreams Bold';
+  }
 
-.bold {
-  font-family: 'Caviar Dreams Bold';
 }
 
 .sd-landing-players-container {
@@ -122,6 +125,14 @@ body {
    display: flex;
    flex-direction: row;
    justify-content: space-evenly;
+   
+   img {
+    //  width:354;
+    // height: 462;
+    width: 300px;
+    height:391.53px;
+    margin-bottom:50px;
+   }
 }
 
 .konvajs-content {
@@ -130,5 +141,9 @@ body {
 }
 
 .sd-logo {
-   position: relative;
+   width:600px;
+   position:relative;
+   top:20px;
+   left: 25%;
+   z-index: -100;
 }

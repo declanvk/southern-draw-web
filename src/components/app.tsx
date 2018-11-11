@@ -64,7 +64,7 @@ default class App extends React.Component<App.IProps, App.IState> {
 
       return (
          <div>
-            <img source={logo} className={'sd-logo'}/>
+            <img src={logo} className={'sd-logo'}/>
             <PageTransition>
                {page}
             </PageTransition>
