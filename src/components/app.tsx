@@ -22,6 +22,9 @@ default class App extends React.Component<App.IProps, App.IState> {
 
    socket: SocketIO.Socket;
 
+   user1: string;
+   user2: string;
+
    constructor(props: App.IProps) {
       super(props);
 
@@ -29,6 +32,7 @@ default class App extends React.Component<App.IProps, App.IState> {
 
       this.socket = io('/game/web');
       this.transitionToGame = this.transitionToGame.bind(this);
+      this.setPlayers = this.setPlayers.bind(this);
    }
 
    transitionToGame() {
@@ -37,13 +41,18 @@ default class App extends React.Component<App.IProps, App.IState> {
       })
    }
 
+   setPlayers(user1, user2) {
+      this.user1 = user1;
+      this.user2 = user2;
+   }
+
    render() {
       let page: any;
    
       if (this.state.display == 'landing')
-         page = (<Landing transition_func={this.transitionToGame} socket={this.socket} />);
+         page = (<Landing set_players={this.setPlayers} transition_func={this.transitionToGame} socket={this.socket} />);
       else
-         page = (<GameBoard socket={this.socket} />);
+         page = (<GameBoard user1={this.user1} user2={this.user2} socket={this.socket} />);
 
       return (
          <div>

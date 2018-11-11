@@ -13,6 +13,7 @@ namespace Landing {
    interface IProps {
       socket: SocketIO.Socket;
       transition_func: () => void;
+      set_players: (u: string, b: string) => void;
    }
 
    export
@@ -45,6 +46,7 @@ class Landing extends React.Component<Landing.IProps, Landing.IState> {
                players: [data.players[0].user_name, '']
             });
          } else if ((data.players.length >= 2)) {
+            this.props.set_players(data.players[0].user_name, data.players[1].user_name)
             setTimeout(this.props.transition_func, 3000);
             this.setState({
                players: [data.players[0].user_name, data.players[1].user_name]

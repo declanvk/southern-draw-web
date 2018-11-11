@@ -43,12 +43,13 @@ namespace GameBoard {
    export 
    interface IProps {
       socket: SocketIO.Socket;
+      user1: string;
+      user2: string;
+
    }
    export 
    interface IState {
-      user1: string;
       user1_lines: UserCanvas.ILine[];
-      user2: string;
       user2_lines: UserCanvas.ILine[];
    }
 }
@@ -59,9 +60,7 @@ class GameBoard extends React.Component<GameBoard.IProps, GameBoard.IState> {
       super(props);
 
       this.state = {
-         user1: 'user1 name',
          user1_lines: [],
-         user2: 'user2 name',
          user2_lines: [],
       };
    }
@@ -79,7 +78,7 @@ class GameBoard extends React.Component<GameBoard.IProps, GameBoard.IState> {
             return {color: l.color, points: points};
          });
 
-         if (data.user_name == this.state.user1) {
+         if (data.user_name == this.props.user1) {
             this.setState({
                user1_lines: lines
             });
@@ -97,10 +96,10 @@ class GameBoard extends React.Component<GameBoard.IProps, GameBoard.IState> {
             <div className='sd-header-spacer'/>
             <div className='sd-content-container'>
                <div className='sd-canvas-left'>
-                  <UserCanvas user={this.state.user1} lines={this.state.user1_lines}/>
+                  <UserCanvas user={this.props.user1} lines={this.state.user1_lines}/>
                </div>
                <div className='sd-canvas-right'>
-                  <UserCanvas user={this.state.user2} lines={this.state.user2_lines}/>
+                  <UserCanvas user={this.props.user2} lines={this.state.user2_lines}/>
                </div>
             </div>
          </div>
