@@ -27,7 +27,7 @@ class UserCanvas extends React.Component<UserCanvas.IProps, undefined> {
          )
       });
       return (
-         <STAGE width={440} height={737} className='sd-user-canvas'>
+         <STAGE width={300} height={500} className='sd-user-canvas'>
             <Layer>
                {lines}
             </Layer>
