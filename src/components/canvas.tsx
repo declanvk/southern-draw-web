@@ -41,6 +41,7 @@ namespace GameBoard {
    interface IProps {
       user: string;
       lines: UserCanvas.ILine[];
+      socket: SocketIO.Socket;
    }
    export 
    interface IState {
