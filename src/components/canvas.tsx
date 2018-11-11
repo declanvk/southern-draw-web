@@ -26,7 +26,7 @@ class UserCanvas extends React.Component<UserCanvas.IProps, undefined> {
    render() {
       const lines = this.props.lines.map((l, idx) => {
          return (
-            <Line points={l.points} stroke={l.color} strokeWidth={10} key={idx} />
+            <Line points={l.points} stroke={l.color} strokeWidth={7} key={idx} />
          )
       });
       return (
