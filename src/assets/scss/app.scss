@@ -18,8 +18,8 @@ $bg-color: #a36e49;
 body {
   margin: 0;
   padding: 0;
-  background: url('../img/bg-no-logo.png') no-repeat center center fixed;
-  // background-size:cover;                      /* <------ */
+  background: url('../img/bg-new.png') no-repeat;
+  background-size: 100vw;                      /* <------ */
   // background-repeat: no-repeat;
   // background-position: top center;
 }
