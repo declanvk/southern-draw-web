@@ -1,5 +1,5 @@
 import * as React from "react";
-import io from "socket.io-client";
+import * as io from "socket.io-client";
 import {GameBoard, UserCanvas} from './canvas';
 import {Landing} from './landing';
 import PageTransition from 'react-router-page-transition';
@@ -33,34 +33,26 @@ default class App extends React.Component<App.IProps, App.IState> {
             {color: 'blue', points: [10, 10, 400, 400]},
             {color: 'green', points: [400, 10, 300, 300]},
          ],
-         display: 'landing'
+         display: 'landing',
       };
 
-      this.handleChange = this.handleChange.bind(this);
-
-      //setTimeout(this.handleChange, 3000);
+      this.socket = io('/game/web');
+      this.transitionToGame = this.transitionToGame.bind(this);
    }
 
-   handleChange() {
+   transitionToGame() {
       this.setState({
          display: 'game'
       })
-   }
-
-   componentDidMount() {
-      // this.socket = io('/games');
-      // this.socket.on('connect', (evt: any) => {
-
-      // })
    }
 
    render() {
       let page: any;
    
       if (this.state.display == 'landing')
-         page = (<Landing lounge_code={'000-000'} />);
+         page = (<Landing transition_func={this.transitionToGame} socket={this.socket} />);
       else
-         page = (<GameBoard {...this.state} />);
+         page = (<GameBoard socket={this.socket} {...this.state} />);
 
       return (
          <div>
