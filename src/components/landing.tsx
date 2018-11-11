@@ -18,6 +18,7 @@ namespace Landing {
    export
    interface IState {
       lounge_code: string;
+      players: string[];
    }
 }
 
@@ -27,7 +28,8 @@ class Landing extends React.Component<Landing.IProps, Landing.IState> {
       super(props);
       
       this.state = {
-         lounge_code: '000000'
+         lounge_code: '000000',
+         players: ['', '']
       }
    }
 
@@ -36,7 +38,19 @@ class Landing extends React.Component<Landing.IProps, Landing.IState> {
          this.setState({
             lounge_code: evt.room_number
          });
-      })
+      });
+      this.props.socket.on('all_players', (data: any) => {
+         if (data.players.length == 1) {
+            this.setState({
+               players: [data.players[0].user_name, '']
+            });
+         } else if ((data.players.length >= 2)) {
+            setTimeout(this.props.transition_func, 3000);
+            this.setState({
+               players: [data.players[0].user_name, data.players[1].user_name]
+            });
+         }
+      });
    }
 
    render() {
@@ -47,8 +61,14 @@ class Landing extends React.Component<Landing.IProps, Landing.IState> {
                <p>Your lounge code is: <span className="sd-bold">{this.state.lounge_code}</span></p>
             </div>
             <div className={'sd-landing-players-container'}>
-               <img src={p1_image}  onClick={this.props.transition_func}/>
-               <img src={p2_image} />
+               <div className={'sd-landing-players-card'}>
+                  <img src={p1_image}  onClick={this.props.transition_func}/>
+                  <div className={'sd-landing-players-name'}><p>{this.state.players[0]}</p></div>
+               </div>
+               <div className={'sd-landing-players-card'}>
+                  <img src={p2_image} />
+                  <div className={'sd-landing-players-name'}><p>{this.state.players[1]}</p></div>
+               </div>
             </div>
          </div>
       );
