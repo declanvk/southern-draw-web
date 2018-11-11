@@ -71,7 +71,6 @@ class GameBoard extends React.Component<GameBoard.IProps, GameBoard.IState> {
          let lines: UserCanvas.ILine[] = data.lines.map(l => {
             let points: number[] = [];
             l.points.forEach(p => {
-               console.log(data.screen_dim.width);
                points.push(p.x * canvas_width / data.screen_dim.width,
                   p.y * canvas_height / data.screen_dim.height);
             });
