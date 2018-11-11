@@ -3,6 +3,9 @@ import { Stage, Layer, Line, Text } from 'react-konva';
 
 var STAGE = (Stage as any);
 
+let canvas_height = 500.0;
+let canvas_width = 300.0;
+
 export
 namespace UserCanvas {
    export
@@ -27,7 +30,7 @@ class UserCanvas extends React.Component<UserCanvas.IProps, undefined> {
          )
       });
       return (
-         <STAGE width={300} height={500} className='sd-user-canvas'>
+         <STAGE width={canvas_width} height={canvas_height} className='sd-user-canvas'>
             <Layer>
                {lines}
             </Layer>
@@ -68,7 +71,9 @@ class GameBoard extends React.Component<GameBoard.IProps, GameBoard.IState> {
          let lines: UserCanvas.ILine[] = data.lines.map(l => {
             let points: number[] = [];
             l.points.forEach(p => {
-               points.push(p.x, p.y);
+               console.log(data.screen_dim.width);
+               points.push(p.x * canvas_width / data.screen_dim.width,
+                  p.y * canvas_height / data.screen_dim.height);
             });
             return {color: l.color, points: points};
          });
